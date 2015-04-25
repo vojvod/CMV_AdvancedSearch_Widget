@@ -1,0 +1,227 @@
+<div id="gis_GoToDijit" class="gis_GoToDijit">
+
+    <div class="goTo_div1">
+        <label><b>${i18n.selectLayer}</b></label><br/>
+
+        <div class="centerDiv"><input type="select" style="width: 95%;" data-dojo-type="dijit/form/FilteringSelect"
+                                      data-dojo-props="name:'identifyLayer',autoComplete:true,required:true,searchAttr:'name',maxHeight:250,'class':'identifySelect'"
+                                      data-dojo-attach-point="selectionIdentifyLayerDijit"
+                                      data-dojo-attach-event="onChange:updateLayerFieldsDataGrid"/>
+        </div>
+    </div>
+
+    <div class="goTo_DijitcontainerNode" data-dojo-type="dijit/layout/TabContainer"
+         data-dojo-attach-point="goTo_DijitcontainerNode">
+
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="SearchByAttribute">
+            <div>
+
+                <div>
+                    <table class="inlineTable" data-dojo-attach-point="layerFieldsDataGrid"
+                           dojoType="dojox/grid/DataGrid" data-dojo-props="canSort:false" style="height: 150px;" data-dojo-attach-event="onRowClick:onFieldLayerClick">
+                        <thead>
+                        <tr>
+                            <th field="alias" width="100%">${i18n.field}</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <table class="inlineTable" data-dojo-attach-point="layerFieldValuesDataGrid"
+                           dojoType="dojox/grid/DataGrid" data-dojo-props="canSort:false" style="height: 150px;" data-dojo-attach-event="onRowClick:onFieldValueClick">
+                        <thead>
+                        <tr>
+                            <th field="fieldvalue" width="100%">${i18n.values}</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="div0">
+                    <button data-dojo-attach-point="button1" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-event="onClick:add2sqltxt1">${i18n.button1}
+                    </button>
+                    <button data-dojo-attach-point="button2" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-event="onClick:add2sqltxt2">${i18n.button2}
+                    </button>
+                    <button data-dojo-attach-point="button3" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-event="onClick:add2sqltxt3">${i18n.button3}
+                    </button>
+                    <button data-dojo-attach-point="button4" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-event="onClick:add2sqltxt4">${i18n.button4}
+                    </button>
+                    <button data-dojo-attach-point="button5" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-event="onClick:add2sqltxt5">${i18n.button5}
+                    </button>
+                    <button data-dojo-attach-point="button6" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-event="onClick:add2sqltxt6">${i18n.button6}
+                    </button>
+                    <button data-dojo-attach-point="button7" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-event="onClick:add2sqltxt7">${i18n.button7}
+                    </button>
+                    <button data-dojo-attach-point="button8" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-event="onClick:add2sqltxt8">${i18n.button8}
+                    </button>
+                    <button data-dojo-attach-point="button9" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-event="onClick:add2sqltxt9">${i18n.button9}
+                    </button>
+                    <button data-dojo-attach-point="button10" data-dojo-type="dijit/form/Button"
+                            data-dojo-attach-event="onClick:add2sqltxt10">${i18n.button10}
+                    </button>
+                </div>
+
+                <div>
+                    <label for="sqltxt">${i18n.labelsql}</label>
+                    <input type="text" name="sqltxt" rows="2" cols="30" data-dojo-type="dijit/form/SimpleTextarea"
+                           data-dojo-props="trim:true, propercase:true" data-dojo-attach-point="sqltxt"/>
+                </div>
+
+                <div class="centerDiv">
+                    <div data-dojo-type="dijit/form/Button"
+                         data-dojo-props="iconClass:'fa fa-search fa-fw'"
+                         data-dojo-attach-point="searchDijit" data-dojo-attach-event="onClick:searchByAttributes">
+                        ${i18n.searchButton}
+                    </div>
+                    <div data-dojo-type="dijit/form/Button" data-dojo-props="iconClass:'fa fa-history fa-fw'"
+                         data-dojo-attach-event="onClick:add2sqltxtClear">${i18n.clearButton}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="SearchSpatial">
+            <div class="centerDiv">
+                <div>
+                    <button data-dojo-type="dijit.form.Button"
+                            data-dojo-props="iconClass:'adw-icon-point'"
+                            data-dojo-attach-point="simeio" data-dojo-attach-event="onClick:drawPoint"
+                            style="width: 100px;">${i18n.point}
+                    </button>
+                </div>
+                <div>
+                    <button data-dojo-type="dijit.form.Button"
+                            data-dojo-props="iconClass:'adw-icon-polyline'"
+                            data-dojo-attach-point="grammi" data-dojo-attach-event="onClick:drawLine"
+                            style="width: 100px;">${i18n.polyline}
+                    </button>
+                </div>
+                <div>
+                    <button data-dojo-type="dijit.form.Button"
+                            data-dojo-props="iconClass:'adw-icon-circle'"
+                            data-dojo-attach-point="kiklos" data-dojo-attach-event="onClick:drawCircle"
+                            style="width: 100px;">${i18n.circle}
+                    </button>
+                </div>
+                <div>
+                    <button data-dojo-type="dijit.form.Button"
+                            data-dojo-props="iconClass:'adw-icon-polygon'"
+                            data-dojo-attach-point="poligono" data-dojo-attach-event="onClick:drawPolygon"
+                            style="width: 100px;">${i18n.polygon}
+                    </button>
+                </div>
+                <hr/>
+                <div>
+                    <input type="checkbox" data-dojo-attach-point="bufferOption" data-dojo-type="dijit/form/CheckBox"
+                           data-dojo-props="'class':'containsCheck'"/>
+                    <label><b>${i18n.buffer}</b></label>
+                </div>
+                <div>${i18n.distance}<input type="text" id="bufferDistance" size="5" value="25"/>${i18n.meters}</div>
+                <hr/>
+                <div>
+                    <div data-dojo-type="dijit/form/Button"
+                         data-dojo-props="iconClass:'fa fa-search fa-fw'"
+                         data-dojo-attach-point="searchBufferButton" data-dojo-attach-event="onClick:searchByGeometry">
+                        ${i18n.searchButton}
+                    </div>
+                    <div data-dojo-type="dijit/form/Button"
+                         data-dojo-props="iconClass:'fa fa-history fa-fw'"
+                         data-dojo-attach-event="onClick:clean">${i18n.clearButton}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="SearchByAddress">
+            <div>
+                <div>
+                    <label><b>${i18n.address}</b></label>
+
+                    <div class="searchContainer" data-dojo-attach-point="searchContainerNode">
+                        <div data-dojo-attach-point="geocoderNode"></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 10px;">
+                    <label><b>${i18n.radus}</b></label>
+                    <input type="text" id="bufferDistance2" size="5" value="25"/>${i18n.meters}
+                </div>
+                <div class="centerDiv" style="margin-top: 20px;">
+                    <div data-dojo-type="dijit/form/Button"
+                         data-dojo-props="iconClass:'fa fa-search fa-fw'"
+                         data-dojo-attach-point="searchAddressButton" data-dojo-attach-event="onClick:searchByAddress">
+                        ${i18n.searchButton}
+                    </div>
+                    <div data-dojo-type="dijit/form/Button"
+                         data-dojo-props="iconClass:'fa fa-history fa-fw'"
+                         data-dojo-attach-event="onClick:clean">${i18n.clearButton}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="SearchBySelection">
+            <div>
+                <div data-dojo-type="dijit/form/Form" data-dojo-attach-point="selectionSearchFormDijit">
+
+                    <div>
+                        <label><b>${i18n.interselectLayer}</b></label>
+
+                        <div class="centerDiv">
+                            <input type="select" style="width: 95%;" data-dojo-type="dijit/form/FilteringSelect"
+                                   data-dojo-props="name:'identifyLayer',autoComplete:true,required:true,searchAttr:'name',maxHeight:250,'class':'identifySelect'"
+                                   data-dojo-attach-point="selectionIdentifyLayerDijit2"/></div>
+                    </div>
+
+                    <div class="centerDiv" style="margin-top: 10px;">
+                        <button data-dojo-type="dijit.form.Button"
+                                data-dojo-props="iconClass:'adw-icon-polygon'"
+                                data-dojo-attach-point="selectPoligono" data-dojo-attach-event="onClick:drawPolygon">
+                            ${i18n.SelectionPolygon}
+                        </button>
+                    </div>
+
+                    <hr/>
+                    <div>
+                        <input type="checkbox" data-dojo-attach-point="bufferForSelectionOption"
+                               data-dojo-type="dijit/form/CheckBox" data-dojo-props="'class':'containsCheck'"/>
+                        <label><b>${i18n.buffer}</b></label>
+                    </div>
+                    <div class="centerDiv">${i18n.distance}<input type="text" id="bufferDistanceForSelection" size="5"
+                                                                  value="25"/>${i18n.meters}
+                    </div>
+                    <hr/>
+
+                    <div class="centerDiv">
+
+                        <button data-dojo-attach-point="selection_find"
+                                data-dojo-type="dijit.form.Button"
+                                data-dojo-props="iconClass:'fa fa-search fa-fw'"
+                                data-dojo-attach-event="onClick:searchBySelection">
+                            ${i18n.searchButton}
+                        </button>
+
+                        <button data-dojo-attach-point="selection_clear"
+                                data-dojo-type="dijit.form.Button"
+                                data-dojo-props="iconClass:'fa fa-history fa-fw'"
+                                data-dojo-attach-event="onClick:clearResults">${i18n.clearButton}
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
