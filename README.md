@@ -6,6 +6,7 @@ It provides:
 2. search by location
 3. search by address
 4. search by other selected features
+
 ![alt tag](https://github.com/vojvod/CMV_AdvancedSearch_Widget/blob/master/img1.png)
 
 
