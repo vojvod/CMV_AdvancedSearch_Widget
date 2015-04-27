@@ -3,15 +3,11 @@ An advanced search widget for CMV (http://cmv.io/). Used together with [Attribut
 
 ![alt tag](https://github.com/vojvod/CMV_AdvancedSearch_Widget/blob/master/img1.png)
 
-It provides searching by attributes
-![alt tag](https://github.com/vojvod/CMV_AdvancedSearch_Widget/blob/master/img2.png)    
+It provides: 
+1. searching by attributes
+2. It provides searching by location
+3. It provides searching by address
+4. It provides searching by other selected features
 
-It provides searching by location
-![alt tag](https://github.com/vojvod/CMV_AdvancedSearch_Widget/blob/master/img3.png)
-
-It provides searching by address
-![alt tag](https://github.com/vojvod/CMV_AdvancedSearch_Widget/blob/master/img4.png)    
-
-It provides searching by other selected features
-![alt tag](https://github.com/vojvod/CMV_AdvancedSearch_Widget/blob/master/img5.png)
+![alt tag](https://github.com/vojvod/CMV_AdvancedSearch_Widget/blob/master/img2.png)    ![alt tag](https://github.com/vojvod/CMV_AdvancedSearch_Widget/blob/master/img3.png)    ![alt tag](https://github.com/vojvod/CMV_AdvancedSearch_Widget/blob/master/img4.png)    ![alt tag](https://github.com/vojvod/CMV_AdvancedSearch_Widget/blob/master/img5.png)
 
