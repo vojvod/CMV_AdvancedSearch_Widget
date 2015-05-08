@@ -63,7 +63,7 @@ define([
     'xstyle/css!./Search/css/Search.css',
 
     // not referenced
-
+    'dijit/form/FilteringSelect',
     'dijit/layout/TabContainer',
     'dijit/layout/ContentPane',
 
@@ -165,17 +165,6 @@ define([
             }));
             this.geocoder.startup();
 
-            if (this.parentWidget) {
-                if (this.parentWidget.toggleable) {
-                    this.own(aspect.after(this.parentWidget, 'toggle', lang.hitch(this, function () {
-                        this.onLayoutChange(this.parentWidget.open);
-                    })));
-                }
-                this.own(aspect.after(this.parentWidget, 'resize', lang.hitch(this, function () {
-                    this.goTo_DijitcontainerNode.resize();
-                })));
-            }
-
             this.layers = [];
             array.forEach(this.layerInfos, function (layerInfo) {
                 var lyrId = layerInfo.layer.id;
@@ -229,18 +218,18 @@ define([
             this.standby.startup();
 
         },
-        onLayoutChange: function (open) {
-            if (open) {
+        
+        startup: function () {
+            this.inherited(arguments);
+            var parent = this.getParent();
+            if (parent) {
+                this.own(on(parent, 'show', lang.hitch(this, function () {
+                    this.goTo_DijitcontainerNode.resize();
+                })));
+            }
+            aspect.after(this, 'resize', lang.hitch(this, function () {
                 this.goTo_DijitcontainerNode.resize();
-                //Controller.togglePane('bottom', 'block');
-                //var outerPane = dijit.byId("sidebarBottom");
-                //outerPane.resize();
-            }
-            else {
-                //Controller.togglePane('bottom', 'none');
-                //var outerPane = dijit.byId("sidebarBottom");
-                //outerPane.resize();
-            }
+            }));
         },
 
 
